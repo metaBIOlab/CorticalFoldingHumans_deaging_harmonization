@@ -76,8 +76,8 @@ data <- data %>%
     localGI = TotalArea / ExposedArea,
     k = sqrt(AvgThickness) * TotalArea / (ExposedArea ^ 1.25),
     K = 1 / 4 * log10(AvgThickness^ 2)  + log10(TotalArea) - 5 / 4 * log10(ExposedArea),
-    S = 3 / 2 * log10(TotalArea) + 3 / 4 * log10(ExposedArea) - 9 /  4 * log10(AvgThickness^ 2)  ,
-    I = log10(TotalArea) + log10(ExposedArea) + log10(AvgThickness^ 2)  ,
+    S = 3 / 2 * log10(TotalArea) + 3 / 4 * log10(ExposedArea) - 9 /  4 * log10(AvgThickness^2),
+    I = log10(TotalArea) + log10(ExposedArea) + log10(AvgThickness^ 2),
     Knorm = K / sqrt(1 + (1 / 4) ^ 2 + (5 / 4) ^ 2),
     Snorm = S / sqrt((3 / 2) ^ 2 + (3 / 4) ^ 2 + (9 / 4) ^ 2),
     Inorm = I / sqrt(1 ^ 2 + 1 ^ 2 + 1 ^ 2),
@@ -88,8 +88,8 @@ data <- data %>%
     logExposedArea_corrected = log10(ExposedArea_corrected),
     localGI_corrected = TotalArea_corrected / ExposedArea_corrected,
     k_corrected = sqrt(AvgThickness) * TotalArea_corrected / (ExposedArea_corrected ^ 1.25),
-    K_corrected = log10(TotalArea_corrected) - 5 / 4 * log10(ExposedArea_corrected) + 1 / 4 * log10(AvgThickness^ 2) ,
-    I_corrected = log10(TotalArea_corrected) + log10(ExposedArea_corrected) + log10(AvgThickness^ 2) ,
+    K_corrected = log10(TotalArea_corrected) - 5 / 4 * log10(ExposedArea_corrected) + 1 / 4 * log10(AvgThickness^ 2),
+    I_corrected = log10(TotalArea_corrected) + log10(ExposedArea_corrected) + log10(AvgThickness^ 2),
     S_corrected = 3 / 2 * log10(TotalArea_corrected) + 3 / 4 * log10(ExposedArea_corrected) - 9 /  4 * log10(AvgThickness^ 2) 
   )
 
