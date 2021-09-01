@@ -772,7 +772,10 @@ ap9_a <- ggplot(filter(data, ROI == "hemisphere")) +
   geom_smooth(method = "lm", aes(x = Age, y = AvgThickness), color = "grey") +
   geom_smooth(method = "lm", aes(x = Age, y = AvgThickness_shiftc), color = "darkblue") +
       guides(alpha= "none") +
-  theme_pubr()
+  theme_pubr() +
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25)))
 
 ap9_a
 ```
@@ -789,14 +792,18 @@ t_a <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness, 
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 t_b <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespa
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespa
 
 t_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_shiftc,  color = Sample, fill = Sample), alpha = 0.4) +
   geom_point(aes(alpha =0.4), 
@@ -806,14 +813,18 @@ t_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_s
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
  t_d <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_shiftc), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
  
  ap6 <-  ggarrange(t_a, t_b, t_c, t_d, nrow =2 , ncol = 2 , font.label = list(size = 11), common.legend = TRUE, legend = "top")
  ap6
@@ -831,13 +842,16 @@ ap9_b <- ggplot(filter(data, ROI == "hemisphere")) +
   geom_smooth(method = "lm", aes(x = Age, y = K), color = "grey") +
   geom_smooth(method = "lm", aes(x = Age, y = K_shiftc), color = "darkblue") +
       guides(alpha= "none") +
-  theme_pubr()
+  theme_pubr() +
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25)))
 
 ap9_b
 
 ap9 <- 
   ggarrange(ap9_a, ap9_b, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
-# ggsave("ap9.pdf", ap9, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
+ggsave("ap9.pdf", ap9, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
 
 ggplot(filter(data, ROI == "hemisphere")) +
   geom_point(aes(x = Age, y = S, alpha = 0.4),  color = "grey") +
@@ -868,14 +882,18 @@ k_a <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K,  color = Sa
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
  k_b <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 k_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_shiftc,  color = Sample, fill = Sample), alpha = 0.4) +
   geom_point(aes(alpha =0.4), 
@@ -884,15 +902,19 @@ k_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_shiftc,  col
              colour = 'white') +
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
-  theme_pubr() +
-  xlim(0,100) # human lifespan
+  theme_pubr()+
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
  k_d <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_shiftc), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 ap7 <-  ggarrange(k_a, k_b, k_c, k_d, labels = c("A","B","C","D"), nrow =2 , ncol = 2 , font.label = list(size = 11), common.legend = TRUE, legend = "top")
 ap7
@@ -1076,29 +1098,37 @@ t_a <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness, 
   geom_point(aes(alpha =0.4)) +
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
-  theme_pubr() +
-  xlim(0,100) # human lifespan
+  theme_pubr()+
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
  t_b <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 t_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_age_decay_shiftc,  color = Sample, fill = Sample), alpha = 0.4) +
   geom_point(aes(alpha =0.4)) +
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
  t_d <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_age_decay_shiftc), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
  
  ggarrange(t_a, t_b, t_c, t_d, common.legend = TRUE, ncol = 2)
 ```
@@ -1142,14 +1172,18 @@ k_a <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K,  color = Sa
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 k_b <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
-  theme_pubr() +
-  xlim(0,100) # human lifespan
+  theme_pubr()+
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 k_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_age_decay_shiftc,  color = Sample, fill = Sample), alpha = 0.4) +
   geom_point(aes(alpha =0.4), 
@@ -1159,14 +1193,18 @@ k_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_age_decay_sh
   geom_smooth(method = "lm") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
 
 k_d <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_age_decay_shiftc), alpha = 0.4) +
   geom_smooth(method = "lm", fullrange = TRUE, aes( color = Sample, fill = Sample)) +
     geom_smooth(method = "lm", fullrange = TRUE, color = "black", linetype = "dashed") +
   guides(alpha = "none") + # added some transparency to improve visualization  
   theme_pubr() +
-  xlim(0,100) # human lifespan
+    scale_x_continuous(name ="Age", 
+                    limits=c(0,100),
+                breaks=c(seq(0,100,25))) # human lifespan
  
 ap8 <- ggarrange(k_a, k_b, k_c, k_d, labels = c("A","B","C","D"), nrow =2, ncol = 2, font.label = list(size = 11), common.legend = TRUE, legend = "top")
 ap8
