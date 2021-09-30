@@ -36,6 +36,8 @@ knitr::opts_chunk$set(
 ```{r}
 # set working directory
 setwd("~/GitHub/CorticalFoldingHumans_deaging_harmonization")
+
+set.seed(1)
 ```
 
 ```{r packages}
@@ -851,7 +853,7 @@ ap9_b
 
 ap9 <- 
   ggarrange(ap9_a, ap9_b, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
-ggsave("ap9.pdf", ap9, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
+# ggsave("ap9.pdf", ap9, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
 
 ggplot(filter(data, ROI == "hemisphere")) +
   geom_point(aes(x = Age, y = S, alpha = 0.4),  color = "grey") +
