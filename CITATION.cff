@@ -4,10 +4,6 @@ authors:
   - family-names: "Hansen Pacheco de Moraes"
     given-names: "Fernanda"
     orcid: "https://orcid.org/0000-0002-1485-8126"
-  - family-names: "Barreto Braga Mello"
-    given-names: "Victor"
-  - family-names: "Mota"
-    given-names: "Bruno"
 title: moraesfernanda/CorticalFoldingHumans_deaging_harmonization: Deaging and harmonization - Cortical Folding in Humans v1.0
 version: zenodo
 date-released: 2021-09-30
