@@ -271,8 +271,6 @@ ap1_f
 ap1 <- 
   ggarrange(ap1_a, ap1_b, ap1_c, ap1_d, ap1_e, ap1_f, labels = c("A","B", "C", "D", "E", "F"), nrow = 3, ncol = 2, font.label = list(size = 11), common.legend = TRUE, legend = "top")
 
-ggsave("ap1.pdf", ap1, dpi=1200, width = 17.8, height = 17.8, units = "cm", device = "pdf")
-
 ```
 
 ### For the lobes
@@ -525,8 +523,6 @@ ap2_b
 
 ap2 <- 
   ggarrange(ap2_a, ap2_b, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
-ggsave("ap2.pdf", ap2, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
-
 
 ggplot(filter(data, ROI == "hemisphere")) +
   geom_point(aes(x = Age, y = S, alpha = 0.4),  color = "grey") +
@@ -602,8 +598,6 @@ ap3_b
 
 ap3 <- 
   ggarrange(ap3_a, ap3_b, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
-
-ggsave("ap3.pdf", ap3, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
 ```
 
 # Harmonization
@@ -672,7 +666,6 @@ ap4_c
 ap4 <- 
   ggarrange(ap4_a, ap4_c, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
 
-ggsave("ap4.pdf", ap4, dpi=1200, width = 17.8, height = 22, units = "cm", device = "pdf")
 ```
 
 Again, our reference are the Control subjects. To keep it simple, we will harmonize the samples only for the hemisphere in this example. The code including the lobes will be available right after.
@@ -707,8 +700,6 @@ ap5_a <- ggplot(as_tibble(ranef(m.1)), aes(x = grp, y = condval)) +
   labs(x = "Sample", y = "Residual (standard deviation)")
 
 ap5_a
-ggsave("ap5_a.pdf", ap5_a, dpi=1200, width = 8.7, height = 8.7, units = "cm", device = "pdf")
-
 
 re <- as_tibble(ranef(m.1)) %>% # extract the random effects
   mutate(T_shift = condval, Sample = grp) %>% # the condval is the intercept difference for each sample. it is also a constant. here we will refer to it as shift
@@ -829,8 +820,6 @@ t_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = AvgThickness_s
  
  ap6 <-  ggarrange(t_a, t_b, t_c, t_d, nrow =2 , ncol = 2 , font.label = list(size = 11), common.legend = TRUE, legend = "top")
  ap6
- 
- ggsave("ap6.pdf", ap6, dpi=1200, width = 17.8, height = 17.8, units = "cm", device = "pdf")
 
 ```
 
@@ -852,7 +841,6 @@ ap9_b
 
 ap9 <- 
   ggarrange(ap9_a, ap9_b, labels = c("A","B"), nrow = 2, ncol = 1, font.label = list(size = 11), common.legend = TRUE, legend = "top")
-ggsave("ap9.pdf", ap9, dpi=1200, width = 11.4, height = 11.4, units = "cm", device = "pdf")
 
 ggplot(filter(data, ROI == "hemisphere")) +
   geom_point(aes(x = Age, y = S, alpha = 0.4),  color = "grey") +
@@ -920,7 +908,6 @@ k_c <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_shiftc,  col
 ap7 <-  ggarrange(k_a, k_b, k_c, k_d, labels = c("A","B","C","D"), nrow =2 , ncol = 2 , font.label = list(size = 11), common.legend = TRUE, legend = "top")
 ap7
  
-ggsave("ap7.pdf", ap7, dpi=1200, width = 17.8, height = 17.8, units = "cm", device = "pdf")
 ```
 
 # Deaging and harmonization in one shot
@@ -1209,8 +1196,7 @@ k_d <- ggplot(filter(data, ROI == "hemisphere"), aes(x = Age, y = K_age_decay_sh
  
 ap8 <- ggarrange(k_a, k_b, k_c, k_d, labels = c("A","B","C","D"), nrow =2, ncol = 2, font.label = list(size = 11), common.legend = TRUE, legend = "top")
 ap8
- 
-ggsave("ap8.pdf", ap8, dpi=1200, width = 17.8, height = 17.8, units = "cm", device = "pdf")
+
 ```
 
 # Limitations and expectations from future works
